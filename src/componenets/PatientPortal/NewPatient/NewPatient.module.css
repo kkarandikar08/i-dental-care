@@ -1,0 +1,44 @@
+.box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.root {
+    margin: auto;
+    width: 100%;
+}
+
+.title {
+    margin: 10px !important;
+}
+
+.name {
+    width: 100%;
+    margin: 10px !important;
+}
+
+.address {
+    display: inline-block;
+    width: 100%;
+    margin: 10px !important;
+}
+
+.phone {
+    margin: 10px !important;
+}
+
+.checkbox {
+    margin: 10px !important;
+}
+
+.button {
+    width: 100%;
+    margin-top: 10px !important;
+    padding: 10px;
+}
