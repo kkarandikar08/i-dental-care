@@ -7,7 +7,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Dashboard from "../Dashboard/Dashboard";
 import { Route, Switch } from "react-router-dom";
 import NewPatient from "../../componenets/PatientPortal/NewPatient/NewPatient";
-import PatientDetail from "../../componenets/PatientPortal/PatientDetail";
+import PatientDetail from "../../componenets/PatientPortal/PatientDetail/PatientDetail";
 
 const drawerWidth = 240;
 

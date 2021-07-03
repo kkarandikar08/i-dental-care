@@ -1,0 +1,13 @@
+.personalInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 250px;
+}
+
+.personalInformation__avatar {
+    margin: 15px auto auto;
+
+}
+
+.personalInformation__detail {}

@@ -13,6 +13,9 @@ const CasePaperSchema = yup.object({
     houseNumber: yup
         .string()
         .required('Please provide House / Apt / Flat Number'),
+    dateOfBirth: yup
+        .date()
+        .required('Please provide Date of Birth'),
     city: yup
         .string()
         .required('Please provide City'),
@@ -27,6 +30,9 @@ const CasePaperSchema = yup.object({
         .min(10, 'Please provide a valid phone number')
         .max(10, 'Please provide a valid phone number')
         .required('Please provide a phone number'),
+    gender: yup
+        .string()
+        .required('Please enter Gender'),
     medicalHistory: yup
         .string(),
     medications: yup

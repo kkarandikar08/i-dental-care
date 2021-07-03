@@ -1,0 +1,10 @@
+.search {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.autocomplete {
+    width: 100%;
+}

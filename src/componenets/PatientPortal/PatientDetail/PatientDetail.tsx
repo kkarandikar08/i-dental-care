@@ -1,29 +1,28 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import {
     Box,
     Divider,
     Grid,
-    InputAdornment,
     makeStyles,
     Typography,
     Card,
     CardHeader,
     CardContent, List, ListItemIcon, ListItemText, ListItem, Tooltip, IconButton
 } from '@material-ui/core';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import TextField from "@material-ui/core/TextField";
 import {
-    Add, CloudDownload,
-    Edit,
-    Print, Receipt,
-    Search,
+    Add, CloudDownload, Receipt
 } from "@material-ui/icons";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
 import {DataGrid} from "@material-ui/data-grid";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import AutoComplete from "../../../UI/AutoComplete/AutoComplete";
+import PersonalInformationHeader from "./PersonalInformation/PersonalInformationHeader/PersonalInformationHeader";
+import {useSelector} from "react-redux";
+import {Patient} from "../../../models/Patient";
+import PersonalInformationHeaderSkeleton from "../../../UI/Skeletons/PersonalInformationHeaderSkeleton/PersonalInformationHeaderSkeleton";
 
 
 const useStyles = makeStyles({
@@ -33,12 +32,12 @@ const useStyles = makeStyles({
         alignContent: "center",
         justifyContent: "center"
     },
-    search: {
-        width: "100%",
-        display: "flex",
-        flexGrow: 1,
-        justifyContent: "flex-end"
-    },
+    // search: {
+    //     width: "100%",
+    //     display: "flex",
+    //     flexGrow: 1,
+    //     justifyContent: "flex-end"
+    // },
     searchText: {
         width: 300
     },
@@ -61,7 +60,8 @@ const useStyles = makeStyles({
         margin: "auto"
     },
     avatarOrImage: {
-        marginTop: 10
+        margin: "auto",
+        marginTop: 15
     },
     detail__name: {
         margin: "auto",
@@ -164,46 +164,21 @@ const columns = [
     { field: 'type', headerName: 'Treatment', width: 150,  },
 ];
 
+
+
 const PatientDetail = () => {
+    const patients = useSelector((state: any) => state.patientSlice.patients);
+    const selectedPatient: Patient = useSelector((state: any) => state.patientSlice.selectedPatient);
+    useEffect(() => {}, [patients]);
+    console.log(patients);
     const classes = useStyles();
     return (
         <Box className={classes.root}>
-            <Box className={classes.search}>
-                <Autocomplete
-                    freeSolo
-                    id="free-solo-2-demo"
-                    disableClearable
-                    options={top100Films.map((option) => option.title)}
-                    renderInput={(params) => (
-
-                        <TextField
-                            className={classes.searchText}
-                            {...params}
-                            label="Search Patient"
-                            margin="normal"
-                            color={"primary"}
-                            variant="outlined"
-                            InputProps={{ ...params.InputProps, type: 'search', startAdornment:(
-                                    <InputAdornment position={"start"}>
-                                        <Search/>
-                                    </InputAdornment>
-                                )}}
-                        />
-                    )}
-                />
-            </Box>
+            <AutoComplete data={patients}/>
             <Divider/>
-            <div className={classes.options}>
-                <Typography variant={"h6"} component={"span"}>KAUSHIK KARANDIKAR</Typography>
-                <ButtonGroup variant="contained" color="primary"  aria-label="large outlined primary button group">
-                    <Tooltip title={"Print"}>
-                        <Button startIcon={<Print/>}/>
-                    </Tooltip>
-                    <Tooltip title={"Edit Patient Information"}>
-                        <Button startIcon={<Edit/>}/>
-                    </Tooltip>
-                </ButtonGroup>
-            </div>
+            {
+                selectedPatient === null ? <PersonalInformationHeaderSkeleton/> : <PersonalInformationHeader title={`${selectedPatient?.firstName} ${selectedPatient?.lastName}`}/>
+            }
             <Divider/>
             <div className={classes.detailContainer}>
                 <Grid container spacing={4}>
@@ -211,13 +186,13 @@ const PatientDetail = () => {
                         <Grid container spacing={1}>
                             <Grid item lg={4} md={4} sm={12} xs={12}>
                                 <Card className={classes.detail}>
-                                    <div className={classes.avatarContainer}>
+                                    {/*<div className={classes.avatarContainer}>*/}
                                         <Avatar aria-label="recipe" className={classes.avatarOrImage}>
-                                            K
+                                            {`${selectedPatient?.firstName.charAt(0)}`}
                                          </Avatar>
-                                    </div>
-                                    <div className={classes.detail__name}>KAUSHIK KARANDIKAR</div>
-                                    <div className={classes.detail__contact}>4539295932</div>
+                                    {/*</div>*/}
+                                    <div className={classes.detail__name}>{`${selectedPatient?.firstName} ${selectedPatient?.lastName}`}</div>
+                                    <div className={classes.detail__contact}>{`${selectedPatient?.phone}`}</div>
                                     <div>
                                         <Box className={classes.detail__appointments}>
                                             <div className={classes.detail__appointments__block}>
@@ -330,7 +305,7 @@ const PatientDetail = () => {
                                             </Tooltip>
                                         </ListItemIcon>
                                     </ListItem>
-                                    <ListItem key="Dashboard">
+                                    <ListItem key="Dashboard List">
                                         <ListItemIcon>
                                             <Receipt/>
                                         </ListItemIcon>
@@ -434,9 +409,9 @@ const PatientDetail = () => {
 }
 
 const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 }
+    // { title: 'The Shawshank Redemption', year: 1994 },
+    // { title: 'The Godfather', year: 1972 },
+    // { title: 'The Godfather: Part II', year: 1974 }
 ];
 
 export default PatientDetail;

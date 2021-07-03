@@ -31,6 +31,17 @@
 
 .phone {
     margin: 10px !important;
+    width: 50%;
+}
+
+.gender {
+    margin: 10px !important;
+    width: 50%;
+}
+
+.dateOfBirth {
+    margin: 10px !important;
+    width: 100%;
 }
 
 .checkbox {
