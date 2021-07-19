@@ -1,4 +1,5 @@
 import axios from "axios";
+import { v4 as uuid4 } from 'uuid';
 
 import { createSlice } from "@reduxjs/toolkit";
 import {Patient} from "../models/Patient";
@@ -50,6 +51,7 @@ export const createNewCasePaper = (patient: Patient) => {
     return async (dispatch) => {
         dispatch(createCasePaper());
         try {
+            patient._id = uuid4();
             const response = await axios.post(`http://localhost:5000/create-case-paper`, patient);
             const data = response.data;
              await dispatch(createCasePaperSuccess(data));

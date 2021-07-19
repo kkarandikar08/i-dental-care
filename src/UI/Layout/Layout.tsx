@@ -8,6 +8,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import { Route, Switch } from "react-router-dom";
 import NewPatient from "../../componenets/PatientPortal/NewPatient/NewPatient";
 import PatientDetail from "../../componenets/PatientPortal/PatientDetail/PatientDetail";
+import AppointmentScheduler from "../AppointmentScheduler/AppointmentScheduler";
 
 const drawerWidth = 240;
 
@@ -58,6 +59,9 @@ const Layout =() => {
                     </Route>
                     <Route path="/patient-detail">
                         <PatientDetail />
+                    </Route>
+                    <Route path="/schedule-appointment">
+                        <AppointmentScheduler/>
                     </Route>
                 </Switch>
             </main>

@@ -14,7 +14,7 @@ import {Patient} from "../../models/Patient";
 const AutoComplete = (props: any) => {
 
     const filterOptions = createFilterOptions({
-        stringify: ({ firstName, lastName }) => `${firstName} ${lastName}`
+        stringify: ({ firstName, lastName, phone }) => `${firstName} ${lastName} ${phone}`
     });
 
     const dispatch = useDispatch();

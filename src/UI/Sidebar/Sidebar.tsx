@@ -17,6 +17,9 @@ const Sidebar = (props: { cssClasses: { drawer: string | undefined; drawerPaper:
     const onPatientDetailClickHandler = () => {
         history.push('/patient-detail');
     }
+    const onCalendarClickHandler = () => {
+        history.push('/schedule-appointment');
+    }
 
 
     return (
@@ -54,7 +57,7 @@ const Sidebar = (props: { cssClasses: { drawer: string | undefined; drawerPaper:
                         </ListItemIcon>
                         <ListItemText primary={"Payment Information"} />
                     </ListItem>
-                    <ListItem button key="Calendar">
+                    <ListItem button key="Calendar" onClick={onCalendarClickHandler}>
                         <ListItemIcon>
                             <CalendarToday/>
                         </ListItemIcon>

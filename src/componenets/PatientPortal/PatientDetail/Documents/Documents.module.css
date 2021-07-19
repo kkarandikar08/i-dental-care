@@ -1,0 +1,19 @@
+.documents {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.documents__header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row
+}
+
+.documents__header__button {
+    margin: 10px;
+}
+
+.documents__header__title {
+    margin: 10px;
+}

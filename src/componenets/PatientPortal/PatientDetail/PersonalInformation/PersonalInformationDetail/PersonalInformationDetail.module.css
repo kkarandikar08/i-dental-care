@@ -1,3 +1,13 @@
+.root {
+    margin-top: 10px;
+}
+
+.block {
+    vertical-align: top;
+    display: block;
+    text-align: center;
+}
+
 .personalInformation {
     display: flex;
     flex-direction: column;
@@ -10,4 +20,49 @@
 
 }
 
-.personalInformation__detail {}
+.personalInformation__name {
+    margin: 4px auto auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.personalInformation__phone {
+    margin: 4px auto auto;
+    text-transform: uppercase;
+    color: darkgrey;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.personalInformation__container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 20px;
+    align-items: flex-start;
+}
+
+.personalInformation__appointments_container__block__caption {
+    display: block;
+}
+
+.personalInformation__appointments {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.personalInformation__appointments__divider {
+    margin-bottom: 20px;
+    height: 40px;
+    width: 2px;
+}
+
+.personalInformation__detail__label {
+    color: #c1c1c1;
+    margin-bottom: 3px;
+    font-size: 16px;
+}
+.personalInformation__detail__span {
+    margin: 5px;
+    font-size: 16px;
+}
