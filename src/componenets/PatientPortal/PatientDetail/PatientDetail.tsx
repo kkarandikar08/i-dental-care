@@ -11,7 +11,6 @@ import Documents from "./Documents/Documents";
 import Dues from "./Dues/Dues";
 import Notes from "./Notes/Notes";
 import PersonalInformationHeader from "./PersonalInformation/PersonalInformationHeader/PersonalInformationHeader";
-import PersonalInformationHeaderSkeleton from "../../../UI/Skeletons/PersonalInformationHeaderSkeleton/PersonalInformationHeaderSkeleton";
 import PersonalInformationDetail from "./PersonalInformation/PersonalInformationDetail/PersonalInformationDetail";
 
 import classes from './PatientDetail.module.css';
@@ -25,9 +24,7 @@ const PatientDetail = () => {
         <Box className={classes.root}>
             <AutoComplete data={patients}/>
             <Divider/>
-            {
-                selectedPatient === null ? <PersonalInformationHeaderSkeleton/> : <PersonalInformationHeader title={`${selectedPatient?.firstName} ${selectedPatient?.lastName}`}/>
-            }
+            <PersonalInformationHeader title={`${selectedPatient?.firstName} ${selectedPatient?.lastName}`}/>
             <Divider/>
             <div className={classes.detailContainer}>
                 <Grid container spacing={4}>
