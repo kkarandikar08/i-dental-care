@@ -45,8 +45,6 @@ const createCasePaperSlice = createSlice({
 export const { createCasePaper, createCasePaperSuccess, createCasePaperFailure } = createCasePaperSlice.actions;
 
 
-
-
 export const createNewCasePaper = (patient: Patient) => {
     return async (dispatch) => {
         dispatch(createCasePaper());
@@ -61,6 +59,5 @@ export const createNewCasePaper = (patient: Patient) => {
         }
     }
 }
-
 
 export default createCasePaperSlice;
