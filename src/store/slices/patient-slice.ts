@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { createSlice } from "@reduxjs/toolkit";
-import {Patient} from "../models/Patient";
+import {Patient} from "../../models/Patient";
 
 
 const initialState: any = {
@@ -41,7 +41,7 @@ export const fetchPatients = (value: string) => {
     return async dispatch => {
         dispatch(getPatients());
         try {
-            const response = await axios.get(`http://localhost:5000/patients`, {params: {value: value}});
+            const response = await axios.get(`http://localhost:3001/api/patients`, {params: {value: value}});
             const data = response.data;
             dispatch(getPatientsSuccess(data));
 

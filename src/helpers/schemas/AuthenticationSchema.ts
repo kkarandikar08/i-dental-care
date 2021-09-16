@@ -1,12 +1,15 @@
 import * as yup from 'yup';
 
-const CasePaperSchema = yup.object({
+const AuthenticationSchema = yup.object({
     username: yup
         .string()
         .required('Username cannot be empty'),
     password: yup
         .string()
-        .required('Password should not be empty')
+        .required('Password cannot not be empty'),
+    employeeType: yup
+        .string()
+        .required('Please select a type')
 });
 
-export default CasePaperSchema;
+export default AuthenticationSchema;

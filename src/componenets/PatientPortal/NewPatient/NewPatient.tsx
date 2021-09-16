@@ -14,7 +14,7 @@ import CasePaperSchema from "../../../helpers/schemas/CasePaperSchema";
 import {Patient} from "../../../models/Patient";
 import {CalendarToday, House, Person, Phone, Room} from "@material-ui/icons";
 import {useDispatch, useSelector} from "react-redux";
-import { createNewCasePaper } from "../../../store/case-paper-slice";
+import { createNewCasePaper } from "../../../store/slices/case-paper-slice";
 
 const NewPatient = () => {
 

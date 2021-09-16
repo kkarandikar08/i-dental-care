@@ -8,7 +8,7 @@ import _ from 'lodash';
 
 import classes from "./AutoComplete.module.css";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPatients, fetchSelectedPatient} from "../../store/patient-slice";
+import {fetchPatients, fetchSelectedPatient} from "../../store/slices/patient-slice";
 import {Patient} from "../../models/Patient";
 
 const AutoComplete = (props: any) => {

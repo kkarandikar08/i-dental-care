@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import Dashboard from "../Dashboard/Dashboard";
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 import NewPatient from "../../componenets/PatientPortal/NewPatient/NewPatient";
 import PatientDetail from "../../componenets/PatientPortal/PatientDetail/PatientDetail";
 import AppointmentScheduler from "../AppointmentScheduler/AppointmentScheduler";
@@ -37,8 +37,16 @@ const useStyles = makeStyles((theme: { zIndex: { drawer: number; }; spacing: (ar
     }
 }));
 
-const Layout =() => {
+const Layout = (props: any) => {
     const classes = useStyles();
+
+    const userAuthenticated = localStorage.getItem('userAuthenticated') ? JSON.parse(localStorage.getItem('userAuthenticated')) : null;
+    const history = useHistory();
+    if (!userAuthenticated) {
+        history.push('/login')
+    } else {
+        history.push('/dashboard')
+    }
 
     return (
         <div className={classes.root}>
@@ -51,7 +59,7 @@ const Layout =() => {
             />
             <main className={classes.content}>
                 <Switch>
-                    <Route exact path='/'>
+                    <Route path='/dashboard'>
                         <Dashboard/>
                     </Route>
                     <Route path="/create-case-paper">

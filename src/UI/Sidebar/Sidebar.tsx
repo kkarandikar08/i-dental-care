@@ -12,7 +12,7 @@ const Sidebar = (props: { cssClasses: { drawer: string | undefined; drawerPaper:
         history.push('/create-case-paper');
     }
     const onDashboardClickHandler = () => {
-        history.push('/');
+        history.push('/dashboard');
     }
     const onPatientDetailClickHandler = () => {
         history.push('/patient-detail');
